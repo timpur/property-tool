@@ -10,6 +10,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
 using PropertyTool.DataBase;
+using PropertyTool.Model;
+using PropertyTool.Model.Source;
 
 namespace PropertyTool
 {
@@ -29,8 +31,9 @@ namespace PropertyTool
             services.AddControllers();
             services.AddDbContext<PropertyContext>(builder =>
             {
-                builder.UseSqlite(_config.GetConnectionString("PropertyDb"));
+                builder.UseMySql(_config.GetConnectionString("PropertyDb"));
             });
+            services.AddTransient<ISource, RealeStateSource>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

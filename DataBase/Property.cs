@@ -6,7 +6,8 @@ namespace PropertyTool.DataBase
     public class Property
     {
         [Key]
-        public string Id { get; set; }
+        public int Id { get; set; }
+        public string SourceId { get; set; }
 
         public string Address { get; set; }
 
