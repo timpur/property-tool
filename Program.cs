@@ -13,8 +13,6 @@ namespace PropertyTool
     {
         public static void Main(string[] args)
         {
-            var task = new PropertyTool.Client.RealeState().GetProperty();
-            task.Wait();
             CreateHostBuilder(args).Build().Run();
         }
 
